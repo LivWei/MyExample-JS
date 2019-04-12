@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片列表：鼠标移入/移出改变图片透明度</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <style>
+        .wrap{
+            width: 80%;
+            margin: 10px auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .pics{
+            opacity: 0.5;
+            cursor: pointer;
+            border: 1px solid #999;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="pics"><img src="./1.jpg" /></div>
+    <div class="pics"><img src="./2.jpg" /></div>
+    <div class="pics"><img src="./3.jpg" /></div>
+</div>
+<script>
+    window.onload = function () {
+        var pictures = document.getElementsByClassName("pics");
+        for (var i = 0; i < pictures.length; i++) {
+            pictures[i].onmouseover = function () {
+                this.style.opacity = "1";
+            };
+            pictures[i].onmouseout = function () {
+                this.style.cssText = " ";
+            }
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>数组练习：各种数组方法的使用</title>
+    <style>
+        pre {
+            color: green;
+            padding: 10px 15px;
+            margin: 12px 0;
+            background: #f0f0f0;
+            border: 1px dotted #333;
+            font: 12px/1.5 Courier New;
+            word-wrap: break-word;
+        }
+
+        .description {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <pre>January(1),February(2),March(3),April(4),May(5),June(6),July(7),Aguest(8),September(9),October(10),November(11),December(12)</pre>
+    <button>删除January(1)</button>
+    <button>删除December(12)</button>
+    <div class="description">shift():删除原数组第一项，并返回删除元素的值；如果数组为空则返回undefined</div>
+    <div class="description">unshift():将参数添加到原数组开头，并返回数组的长度</div>
+    <div class="description">pop():删除原数组最后一项，并返回删除元素的值；如果数组为空则返回undefined </div>
+    <div class="description">push():将参数添加到原数组末尾，并返回数组的长度</div>
+    <pre>0,1,2,3,4,5,6,7,8,9</pre>
+    <button>复制</button>
+    <button>还原</button>
+    <div class="description">push():将参数添加到原数组末尾，并返回数组的长度</div>
+    <div class="description">join():将数组的元素组起一个字符串，以separator为分隔符，省略的话则用默认用逗号为分隔符 </div>
+    <pre>
+    red,green,blue,white,yellow,black,brown
+</pre>
+    <button>还原</button>
+    <button>删除前三项</button>
+    <button>删除第二至第三项</button>
+    <button>在第二项后面插入(orange, purple)</button>
+    <button>替换第二项和第三项</button>
+    <div class="description">splice(start,deleteCount,val1,val2,...):从start位置开始删除deleteCount项，并从该位置起插入val1,val2,... </div>
+    <pre>0,1,2,3,4,5,6,7,8,9</pre>
+    <button>反序</button>
+    <pre>0,1,2,3,4</pre>
+    <pre>5,6,7,8,9</pre>
+    <button>合并到第一个数组</button>
+    <button>还原</button>
+    <script>
+        window.onload = function () {
+            var isBtn = document.getElementsByTagName("button");
+            var isCon = document.getElementsByTagName("pre");
+            var isDate = isCon[0].innerHTML.split(","),
+                isNum = isCon[1].innerHTML.split(","),
+                isColor = isCon[2].innerHTML.split(","),
+                isOtherNum = isCon[3].innerHTML.split(","),
+                isMyNum1 = isCon[4].innerHTML.split(","),
+                isMyNum2 = isCon[5].innerHTML.split(","),
+                addOrDel1 = true,
+                addOrDel2 = true;
+            const lenNum = isNum.length;
+            isBtn[0].onclick = function () {
+                if (addOrDel1 === true) {
+                    isDate.shift();
+                    isBtn[0].innerHTML = "添加January(1)";
+                    addOrDel1 = false;
+                } else {
+                    isDate.unshift("January(1)");
+                    addOrDel1 = true;
+                    isBtn[0].innerHTML = "删除January(1)";
+                }
+                isCon[0].innerHTML = isDate.join();
+            };
+            isBtn[1].onclick = function () {
+                if (addOrDel2 === true) {
+                    isDate.pop();
+                    addOrDel2 = false;
+                    isBtn[1].innerHTML = "添加December(12)";
+                } else {
+                    isDate.push("December(12)");
+                    addOrDel2 = true;
+                    isBtn[1].innerHTML = "删除December(12)";
+                }
+                isCon[0].innerHTML = isDate.join();
+            };
+            isBtn[2].onclick = function () {
+                var len = isNum.length;
+                for (var i = 0; i < len; i++) {
+                    isNum.push(isNum[i]);
+                }
+                isCon[1].innerHTML = isNum.join();
+            };
+            isBtn[3].onclick = function () {
+                isNum.length = lenNum;
+                isCon[1].innerHTML = isNum.join();
+            };
+            isBtn[4].onclick = function () {
+                isColor = ["red", "green", "blue", "white", "yellow", "black", "brown"];
+                isCon[2].innerHTML = isColor.join();
+            };
+            isBtn[5].onclick = function () {
+                isColor.splice(0, 3);
+                isCon[2].innerHTML = isColor.join();
+            };
+            isBtn[6].onclick = function () {
+                isColor.splice(1, 2);
+                isCon[2].innerHTML = isColor.join();
+            };
+            isBtn[7].onclick = function () {
+                isColor.splice(1, 0, "orange", "purple");
+                isCon[2].innerHTML = isColor.join();
+            };
+            isBtn[8].onclick = function () {
+                isColor.splice(1, 2, "#009900", "#0000ff");
+                isCon[2].innerHTML = isColor.join();
+            };
+            isBtn[9].onclick = function () {
+                isOtherNum = isOtherNum.reverse();
+                isCon[3].innerHTML = isOtherNum.join();
+            };
+            isBtn[10].onclick = function () {
+                isMyNum1 = isMyNum1.concat(isMyNum2);
+                isCon[4].innerHTML = isMyNum1.join();
+            };
+            isBtn[11].onclick = function () {
+                isMyNum1 = [0,1,2,3,4];
+                isCon[4].innerHTML = isMyNum1.join();
+            }
+        }
+    </script>
+</body>
+
+</html>

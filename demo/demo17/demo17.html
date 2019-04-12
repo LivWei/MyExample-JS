@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>用typeof查看数据类型</title>
+    <style>
+        .wrap {
+            width: 600px;
+            margin: 10px auto;
+            padding: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <button>123456</button>
+        <button>abc</button>
+        <button>[1,2,3]</button>
+        <button>null</button>
+    </div>
+    <script>
+        window.onload = function () {
+            var btn = document.getElementsByTagName("button");
+            for (var i = 0; i < btn.length; i++) {
+                (function (j) {
+                    btn[j].onclick = function () {
+                        if (j == 0) {
+                            alert(typeof 123456)
+                        } else if (j == 1) {
+                            alert(typeof "abc")
+                        } else if (j == 2) {
+                            alert(typeof [1, 2, 3])
+                        } else if (j == 3) {
+                            alert(typeof null)
+                        }
+                    };
+                })(i)
+            }
+        }
+    </script>
+</body>
+
+</html>

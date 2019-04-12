@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>首页</title>
+    <link rel="stylesheet" type="text/css" href="index.css" />
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="top-title">JS原生示例</div>
+        <div class="top-content">
+            <ul class="top-nav">
+                <li>控制DIV属性(0)</li>
+                <li>换肤(1)</li>
+                <li>函数接收参数并弹出(2)</li>
+                <li>用循环变色多个DIV(3)</li>
+                <li>鼠标移入移出改变样式(4)</li>
+                <li>鼠标移入提示框(5)</li>
+                <li>按钮点击出现下拉框(6)</li>
+                <li>按钮div显示其innerHTML(7)</li>
+                <li>数组中所有数字求和(8)</li>
+                <li>简单模态框效果(9)</li>
+                <li>函数传参，改变DIV属性值(10)</li>
+                <li>鼠标移入/移除改变图片透明度(11)</li>
+                <li>简单选项卡效果(12)</li>
+                <li>简单年历效果(13)</li>
+                <li>单一按钮显示/隐藏一播放列表收缩展开(14)</li>
+                <li>鼠标移过显示图片(15)</li>
+                <li>复选框(checkbox)全选/全不选(16)</li>
+                <div class="top-title">进阶示例</div>
+                <li>使用typeof查看数据类型(17)</li>
+                <li>用parseInt解析数字，并求和(18)</li>
+                <li>累加按钮(自增1)(19)</li>
+                <li>输入两个数字并比较大小(20)</li>
+                <li>定时累加1(21)</li>
+                <li>判断数字位数(22)</li>
+                <li>计算器(23)</li>
+                <li>时钟(24)</li>
+                <li>倒计时(25)</li>
+                <li>幻灯片播放(26)</li>
+                <li>求和函数(27)</li>
+                <li>输入框高亮(28)</li>
+                <div class="top-title">数组专题</div>
+                <li>数组操作(29)</li>
+                <div class="top-title">事件专题</div>
+                <li>封装兼容性添加、删除事件的函数(30)</li>
+                <div class="top-title">其他事件</div>
+                <li>点击页面，获取单击的坐标(31)</li>
+                <li>按下键盘，显示键盘代码(32)</li>
+                <li>阻止鼠标右键(33)</li>
+                <li>图片跟随鼠标移动(34)</li>
+                <li>自定义右键菜单(35)</li>
+                <li>键盘操作DIV(36)</li>
+                <li>DIV闪烁(37)</li>
+                <li>DIV拖拽(38)</li>
+            </ul>
+        </div>
+    </div>
+    <div class="example">
+        <iframe id="mydemo"></iframe>
+    </div>
+    <script>
+        window.onload = function () {
+            var demoObj = document.getElementById("mydemo");
+            var obj_lis = document.getElementsByTagName("li");
+            for (var i = 0; i < obj_lis.length; i++) {
+                (function (j) {
+                    obj_lis[j].onclick = function () {
+                        demoObj.src = "./demo/demo" + j + "/demo" + j + ".html"
+                    };
+                })(i)
+            }
+        }
+    </script>
+</body>
+
+</html>

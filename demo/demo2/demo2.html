@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数接收参数并弹出</title>
+    <style>
+        .wrap{
+            width: 500px;
+            margin: 0 auto;
+        }
+        input{
+            display: block;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <input type="text" value="请输入" />
+    <input type="text" value="请输入" />
+    <input type="button" value="传参" name="按钮" />
+</div>
+<script>
+    function passData(data1, data2) {
+        alert(data1.value);
+        alert(data2.value);
+    }
+    window.onload = function () {
+        var inputs = document.getElementsByTagName("input");
+        inputs[2].onclick = function () {
+            passData(inputs[0], inputs[1]);
+        }
+
+    }
+</script>
+</body>
+</html>

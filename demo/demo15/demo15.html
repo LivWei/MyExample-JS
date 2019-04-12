@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>提示框效果</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,
+        li {
+            list-style: none;
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        a:link,
+        a:visited {
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .wrap {
+            width: 600px;
+            margin: 10px auto;
+            padding: 10px;
+            border: 1px solid black;
+        }
+
+        h2 {
+            font-size: 14px;
+            line-height: 20px;
+            text-align: center;
+        }
+
+        ul {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        ul>li {
+            flex-basis: 100px;
+            height: 100px;
+            border: 1px solid black;
+            background: #f0f0f0;
+            padding: 5px;
+            margin: 5px 0;
+            position: relative;
+        }
+
+        ul>li>a {
+            font-size: 14px;
+            color: #666666;
+            text-decoration: none;
+        }
+
+        ul>li>img {
+            display: none;
+            z-index: 10;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -64px 0 0 -64px;
+            border: 1px solid #666666;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <h2>鼠标移过显示图片</h2>
+        <ul>
+            <li>
+                <a href="#" title="宇智波 佐助"><strong>佐助</strong></a>
+                <img src="./1.jpg" alt="宇智波 佐助" />
+            </li>
+            <li>
+                <a href="#" title="不认识"><strong>不认识</strong></a>
+                <img src="./2.jpg" alt="不认识" />
+            </li>
+            <li>
+                <a href="#" title="我爱罗"><strong>我爱罗</strong></a>
+                <img src="./3.jpg" alt="我爱罗" />
+            </li>
+        </ul>
+    </div>
+    <script>
+        window.onload = function () {
+            var liS = document.getElementsByTagName("li");
+            var imgS = document.getElementsByTagName("img");
+            for (var i = 0; i < liS.length; i++) {
+                liS[i].index = i;
+                liS[i].onmouseover = function () {
+                    imgS[this.index].style.display = "block";
+                };
+                liS[i].onmouseout = function () {
+                    imgS[this.index].style.display = "none";
+                };
+            }
+        }
+    </script>
+</body>
+
+</html>
